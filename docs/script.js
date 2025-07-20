@@ -19,7 +19,8 @@ async function loadLatestComment() {
 
     for (const commit of commits) {
       const sha = commit.sha;
-      const commentsRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/${sha}/comments`);
+      //const commentsRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/${sha}/comments`);
+      const commentsRes = await fetch(`https://api.github.com/repos/iterativv/NostalgiaForInfinity/commits/4dfa7074c4eb3ca7698b9524f4bd47a129995b65/comments`);
       const comments = await commentsRes.json();
 
       if (comments.length > 0) {
