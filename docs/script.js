@@ -14,22 +14,26 @@ const repo = "NostalgiaForInfinity";
 
 async function loadLatestComment() {
   try {
-    const latestCommitRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`);
-    const latestCommit = (await latestCommitRes.json())[0];
-    const sha = latestCommit.sha;
+    const commitsRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=20`);
+    const commits = await commitsRes.json();
 
-    const commentsRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/${sha}/comments`);
-    const comments = await commentsRes.json();
+    for (const commit of commits) {
+      const sha = commit.sha;
+      const commentsRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/${sha}/comments`);
+      const comments = await commentsRes.json();
 
-    if (comments.length > 0) {
-      output.textContent = comments[comments.length - 1].body;
-    } else {
-      output.textContent = "No comments found on the latest commit.";
+      if (comments.length > 0) {
+        output.textContent = comments[comments.length - 1].body;
+        return;
+      }
     }
+
+    output.textContent = "No commit with comments found.";
   } catch (err) {
     output.textContent = "Error loading comment.";
     console.error(err);
   }
 }
 
+loadLatestComment();
 loadLatestComment();
