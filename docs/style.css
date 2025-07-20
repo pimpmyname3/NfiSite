@@ -1,0 +1,56 @@
+body {
+      margin: 0;
+        font-family: sans-serif;
+        }
+
+        header {
+          background-color: #333;
+            color: white;
+              padding: 1em;
+                position: relative;
+                }
+
+                #menu-toggle {
+                  background: none;
+                    border: none;
+                      color: white;
+                        font-size: 1.5em;
+                          cursor: pointer;
+                          }
+
+                          #side-menu {
+                            position: absolute;
+                              top: 60px;
+                                left: 0;
+                                  width: 200px;
+                                    background-color: #444;
+                                      padding: 1em;
+                                        display: none;
+                                        }
+
+                                        #side-menu ul {
+                                          list-style: none;
+                                            padding: 0;
+                                              margin: 0;
+                                              }
+
+                                              #side-menu li {
+                                                margin-bottom: 1em;
+                                                }
+
+                                                #side-menu a {
+                                                  color: white;
+                                                    text-decoration: none;
+                                                    }
+
+                                                    main {
+                                                      padding: 1em;
+                                                      }
+
+                                                      pre {
+                                                        background: #f4f4f4;
+                                                          padding: 1em;
+                                                            border-radius: 5px;
+                                                              white-space: pre-wrap;
+                                                              }
+}
